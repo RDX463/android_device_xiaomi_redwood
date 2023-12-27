@@ -77,6 +77,18 @@ function blob_fixup() {
         vendor/lib64/hw/camera.xiaomi.so)
             "${SIGSCAN}" -p "29 07 00 94" -P "1F 20 03 D5" -f "${2}"
             ;;
+        vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc)
+            sed -i "s|writepid /dev/stune/foreground/tasks|task_profiles HighPerformance|g" "${2}"
+             ;;
+        vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc)
+            sed -i "s|writepid /dev/cpuset/foreground/tasks|task_profiles ProcessCapacityHigh|g" "${2}"
+             ;;
+        vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc)
+            sed -i "s|writepid /dev/stune/nnapi-hal/tasks|task_profiles NNApiHALPerformance|g" "${2}"
+             ;;
+        vendor/etc/init/vendor.qti.media.c2@1.0-service.rc)
+            sed -i "s|writepid /dev/cpuset/foreground/tasks|task_profiles ProcessCapacityHigh|g" "${2}"
+             ;;
     esac
 }
 
