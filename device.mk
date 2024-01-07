@@ -20,6 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Inherit proprietary targets
 $(call inherit-product, vendor/xiaomi/redwood/redwood-vendor.mk)
 
+# MIUI Camera
+$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
+
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
@@ -363,6 +366,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail.vendor
+
+# MIUI Camera
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.miui.notch=1 \
+    ro.product.mod_device=redwood_global
 
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
