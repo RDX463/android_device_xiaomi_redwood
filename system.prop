@@ -1,3 +1,8 @@
+# Adb
+persist.service.adb.enable=1                                                    
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
+
 # Bluetooth
 vendor.bluetooth.soc=hastings
 
