@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from redwood device
 $(call inherit-product, device/xiaomi/redwood/device.mk)
 
-# Inherit some common Lineage stuff.
+# Inherit some common Matrixx stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 PRODUCT_BRAND := POCO
@@ -32,3 +32,22 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := POCO/redwood_global/redwood:13/RKQ1.211001.001/V14.0.7.0.TMSMIXM:user/release-keys
+
+# Devices Flags Matrixx specific 
+TARGET_BOOT_ANIMATION_RES := 1080
+MATRIXX_BUILD_TYPE := Official
+MATRIXX_MAINTAINER := PRIYANSHU
+MATRIXX_CHIPSET := SM7325
+MATRIXX_BATTERY := 5000mah
+MATRIXX_DISPLAY := 1080X2400
+
+#Build with Gapps
+WITH_GMS := true
+BUILD_GOOGLE_CONTACTS := true
+BUILD_GOOGLE_DIALER := true
+BUILD_GOOGLE_MESSAGE := true
+
+#Exclude prebuilt apps
+TARGET_EXCLUDES_AUDIOFX := true
+TARGET_EXCLUDES_AUXIO := true
+
