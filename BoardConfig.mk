@@ -73,7 +73,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/hidl/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/hidl/vendor_framework_compatibility_matrix.xml \
     $(DEVICE_PATH)/hidl/xiaomi_framework_compatibility_matrix.xml \
-    vendor/banana/config/device_framework_matrix.xml
+    vendor/cherish/config/device_framework_matrix.xml
 
 DEVICE_MANIFEST_FILE := \
     $(DEVICE_PATH)/hidl/manifest_lahaina.xml \
@@ -96,8 +96,8 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
 TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/redwood
-TARGET_KERNEL_CONFIG := vendor/lahaina-qgki_defconfig 
-TARGET_KERNEL_CONFIG += vendor/redwood_QGKI.config
+TARGET_KERNEL_CONFIG := vendor/xiaomi-qgki_defconfig
+TARGET_KERNEL_CONFIG += vendor/redwood-fragment.config
 
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
@@ -116,7 +116,6 @@ BOARD_KERNEL_CMDLINE += kpti=off
 #BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 BOOT_KERNEL_MODULES := \
-    focaltech_touch.ko \
     goodix_core.ko \
     xiaomi_touch.ko
 
@@ -142,7 +141,7 @@ BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
-ifeq ($(WITH_GAPPS),true)
+ifeq ($(WITH_GMS),true)
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 104857600
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 104857600
 else
@@ -235,5 +234,5 @@ CONFIG_IEEE80211AX := true
 include vendor/xiaomi/redwood/BoardConfigVendor.mk
 
 # Inherit from proprietary files for Leica Camera
--include vendor/xiaomi/redwood-miuicamera/products/board.mk
+#-include vendor/xiaomi/camera/products/board.mk
 

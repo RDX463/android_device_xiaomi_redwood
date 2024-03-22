@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/banana_redwood.mk
+    $(LOCAL_DIR)/cherish_redwood.mk
 
 COMMON_LUNCH_CHOICES := \
-    banana_redwood-user \
-    banana_redwood-userdebug \
-    banana_redwood-eng
+    cherish_redwood-user \
+    cherish_redwood-userdebug \
+    cherish_redwood-eng

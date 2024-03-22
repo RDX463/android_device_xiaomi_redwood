@@ -12,25 +12,24 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/redwood/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/banana/config/common.mk)
+$(call inherit-product, vendor/cherish/config/common.mk)
 
 # Call the Leica Camera setup
-$(call inherit-product-if-exists, vendor/xiaomi/redwood-miuicamera/products/miuicamera.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
 
 PRODUCT_BRAND := POCO
 PRODUCT_DEVICE := redwood
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := 22101320G
-PRODUCT_NAME := banana_redwood
+PRODUCT_NAME := cherish_redwood
 
-# BananaDroid
-BANANA_MAINTAINER := franlop77
+# cherish
 TARGET_ENABLE_BLUR := true
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Gapps
-WITH_GAPPS := true
+WITH_GMS := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
