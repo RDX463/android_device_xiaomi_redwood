@@ -29,6 +29,8 @@ $(call inherit-product-if-exists, vendor/bcr/bcr.mk)
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
 
+LOCAL_SHARED_LIBRARIES += libcutils
+
 # Audio
 PRODUCT_PACKAGES += \
     libqcompostprocbundle \
@@ -107,12 +109,12 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     libldacBT_abr \
-    libldacBT_bco \
+    #libldacBT_bco \
     libldacBT_enc
 
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.a2dp@1.0-impl \
-    android.hardware.bluetooth.a2dp@1.0-service \
+    #android.hardware.bluetooth.a2dp@1.0-impl \
+    #android.hardware.bluetooth.a2dp@1.0-service \
     android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth.audio-impl \
     com.dsi.ant@1.0.vendor \
@@ -171,7 +173,7 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@3.0-service \
+    #android.hardware.graphics.allocator@3.0-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
@@ -417,7 +419,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-pixelstar
+    $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -502,8 +504,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Spatial Audio
 PRODUCT_PACKAGES += \
-    frameworks/native/data/etc/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml \
-    libspatialaudio
+    #frameworks/native/data/etc/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml \
+    #libspatialaudio
 
 # Spatial Audio: optimize spatializer effect
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -613,5 +615,5 @@ PRODUCT_PACKAGES += \
     libnl \
     libwfdaac_vendor
 
-PRODUCT_BOOT_JARS += \
-    WfdCommon
+#PRODUCT_BOOT_JARS += \
+   # WfdCommon
