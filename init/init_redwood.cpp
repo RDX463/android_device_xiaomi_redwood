@@ -67,13 +67,10 @@ void set_ro_build_prop(const string &prop, const string &value) {
     }
 }
 
-void set_device_props(const string model, const string name, const string marketname,
-        const string mod_device) {
+void set_device_props(const string model, const string name, const string marketname) {
     set_ro_build_prop("model", model);
     set_ro_build_prop("name", name);
     set_ro_build_prop("marketname", marketname);
-
-    property_override("ro.product.mod_device", mod_device.c_str());
     property_override("bluetooth.device.default_name", marketname.c_str());
 }
 
@@ -82,11 +79,11 @@ void vendor_load_properties() {
     string region = GetProperty("ro.boot.hwc", "");
 
     if (region == "CN") { // China
-        set_device_props("22101320GC", "redwood", "Redmi Note 12 Pro Speed", "redwood");
+        set_device_props("22101320GC", "redwood", "Redmi Note 12 Pro Speed");
     } else if (region == "IN") { // India
-        set_device_props("22101320I", "redwoodin", "Poco X5 Pro 5G", "redwoodin");
+        set_device_props("22101320I", "redwood_in", "Poco X5 Pro 5G");
     } else { // Global
-        set_device_props("22101320G", "redwood_global", "Poco X5 Pro 5G", "redwood_global");
+        set_device_props("22101320G", "redwood_global", "Poco X5 Pro 5G");
     }
 
     // Set hardware revision
