@@ -1,1 +1,3 @@
 dontaudit hal_camera_default default_prop:file r_file_perms;
+dontaudit hal_camera_default shell_data_file:dir search;
+dontaudit platform_app vendor_camera_sensor_prop:file read;
