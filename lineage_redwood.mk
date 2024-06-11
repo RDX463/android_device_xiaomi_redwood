@@ -14,8 +14,12 @@ $(call inherit-product, device/xiaomi/redwood/device.mk)
 # Inherit some common lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_BRAND := POCO
-PRODUCT_DEVICE := redwood
+SAKURA_MAINTAINER := RDX463
+TARGET_BOOT_ANIMATION_RES := 1080
+SAKURA_BUILD_TYPE := gapps
+TARGET_ENABLE_BLUR := true
+
+PODUCT_DEVICE := redwood
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := 22101320G
 PRODUCT_NAME := lineage_redwood
